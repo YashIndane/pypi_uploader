@@ -13,7 +13,6 @@
 #  |  |__README.md
 #  |__pymod.sh  
 #
-#
 #Required Installations
 #1)git
 #  $ yum insall git
