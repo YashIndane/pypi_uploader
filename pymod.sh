@@ -35,9 +35,9 @@ echo "$GITHUB_USERNAME $GITHUB_TOKEN $PYPI_USERNAME $PYPI_PASSWORD $AUTHOR_NAME 
 sudo python3 -m pip install --upgrade pip
 sudo pip3 install wheel
 sudo pip3 install --upgrade setuptools
-sudo pip3 uninstall twine
+echo 'Y' | sudo pip3 uninstall twine
 sudo pip3 install twine
-sudo pip3 uninstall urllib3
+echo 'Y' | sudo pip3 uninstall urllib3
 sudo pip3 install urllib3
 
 sudo touch container/__init__.py
