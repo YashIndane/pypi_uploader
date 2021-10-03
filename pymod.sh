@@ -131,7 +131,7 @@ setuptools.setup(
 )" >> setup.py
 
 # Making the GiHub repository
-sudo curl https://$GITHUB_USERNAME:$GITHUB_TOKEN@api.github.com/user/repos -d '{"name":'$module_dir',"private":false}'
+sudo curl https://$GITHUB_USERNAME:$GITHUB_TOKEN@api.github.com/user/repos -d '{"name":"'$module_dir'","private":false}'
 
 # Initialize git
 sudo git init
