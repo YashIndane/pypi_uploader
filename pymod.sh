@@ -29,15 +29,25 @@ while true; do
         esac
 done
 
-echo "$GITHUB_USERNAME $GITHUB_TOKEN $PYPI_USERNAME $PYPI_PASSWORD $AUTHOR_NAME $VERSION"
-
-
+printf "UPGRADING PIP\n"
 sudo python3 -m pip install --upgrade pip
+
+printf "INSTALLING WHEEL\n"
 sudo pip3 install wheel
+
+printf "UPGRADING SETUPTOOLS\n"
 sudo pip3 install --upgrade setuptools
+
+printf "UNINSTALLING TWINE\n"
 echo 'Y' | sudo pip3 uninstall twine
+
+printf "INSTALLING TWINE\n"
 sudo pip3 install twine
+
+printf "UNINSTALLING URLLIB3\n"
 echo 'Y' | sudo pip3 uninstall urllib3
+
+printf "INSTALLING URLLIB3\n"
 sudo pip3 install urllib3
 
 sudo touch container/__init__.py
@@ -55,19 +65,19 @@ module_dir=${dirs[1]}
 
 cd $module_dir
 
-# Reading file names
+#Reading file names
 while read line
 do
        
-	# Getting file name
+	#Getting file name
 	filename=$(echo $line | awk '{ print $10 }')
 
-	# Removing file extension
+	#Removing file extension
 	filename=$(echo $filename | cut -f 1 -d '.')
         
 	if [ ! -z $filename ]
 	then    
-		# Editing the file
+		#Editing the file
 		echo "from $module_dir.$filename import *" >> ../__init__.py
         fi
 
@@ -79,9 +89,12 @@ mv ../__init__.py .
 
 cd ..
 
-# Creating the LICENSE.txt
+#Creating the LICENSE.txt
+printf "CREATING LICENSE FILE\n"
 sudo touch LICENSE.txt
 
+#Editing LICENSE.txt file
+printf "EDITING LICENSE FILE\n"
 sudo echo "MIT License
 
 Copyright (c) 2021 $AUTHOR_NAME
@@ -104,9 +117,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE." >> LICENSE.txt
 
-# Creating setup.py file
+#Creating setup.py file
+printf "CREATING SETUP FILE\n"
 sudo touch setup.py
 
+#Editing setup.py file
+printf "EDITING SETUP FILE\n"
 sudo echo "import setuptools
 
 with open('README.md' , 'r') as f:
@@ -130,29 +146,35 @@ setuptools.setup(
       python_requires='>=3.6',
 )" >> setup.py
 
-# Making the GiHub repository
+#Making the GiHub repository
+printf "MAKING THE GITHUB REPOSITORY\n"
 sudo curl https://$GITHUB_USERNAME:$GITHUB_TOKEN@api.github.com/user/repos -d '{"name":"'$module_dir'","private":false}'
 
-# Initialize git
+#Initialize git
+printf "INITIALIZING GIT\n"
 sudo git init
 
-# Adding to staging
+#Adding to staging
 sudo git add .
 
-# Making the commit
+#Making the commit
+printf "MAKING COMMIT\n"
 sudo git commit -m "first commit"
 
-# Getting to main branch
+#Getting to main branch
 sudo git branch -M main
 
-#
+#Adding origin
 sudo git remote add origin https://github.com/$GITHUB_USERNAME/$module_dir.git
 
-# Push the code
+#Push the code
+printf "PUSHING THE CODE\n"
 sudo git push https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/$GITHUB_USERNAME/$module_dir.git --all
 
-# Compiling setup.py file
+#Compiling setup.py file
+printf "COMPILING SETUP FILE\n"
 sudo python3 setup.py sdist bdist_wheel
 
-# Upload module to pypi.org
+#Upload module to pypi.org
+printf "UPLOADING MODULE TO PYPI.ORG\n"
 sudo python3 -m twine upload --repository-url https://upload.pypi.org/legacy/ dist/* -u $PYPI_USERNAME -p $PYPI_PASSWORD
