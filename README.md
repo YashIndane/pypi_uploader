@@ -18,13 +18,13 @@ Create a directory with any name with the following structure
 
 Required Installations
 
-1)git
+1) git
 
 ```
 $ yum insall git
 ```  
 
-2)python3
+2) python3
 
 ```
 $ yum install python3
