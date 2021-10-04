@@ -9,7 +9,7 @@ Create a directory with any name with the following structure
   |  |__<module_name>
   |  |  |__<file_1.py>
   |  |  |__  .
-  |  |	 |__  .	 
+  |  |	|__  .	 
   |  |  |__<file_n.py>
   |  |__README.md
   |__pymod.sh
