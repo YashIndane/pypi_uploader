@@ -1,18 +1,18 @@
 # pypi_uploader
 Bash script to upload Python module to pypi.org server
 
-Create a directory with any name with the following structure
+Create a directory anywhere with name `container` with the following structure
 
 ```
-  .
-  |__container
-  |  |__<module_name>
-  |  |  |__<file_1.py>
-  |  |  |__  .
-  |  |	|__  .	 
-  |  |  |__<file_n.py>
-  |  |__README.md
-  |__pymod.sh
+  
+     container
+     |__<module_name>
+     |  |__<file_1.py>
+     |  |__  .
+     |	|__  .	 
+     |  |__<file_n.py>
+     |__README.md
+ 
 ```  
   
 
@@ -33,13 +33,15 @@ $ yum install python3
 Downloading the script and making the `pymod` command
 
 ```
-wget https://raw.githubusercontent.com/YashIndane/pypi_uploader/main/pymod_installer.sh ; bash pymod_installer.sh
+$ wget https://raw.githubusercontent.com/YashIndane/pypi_uploader/main/pymod_installer.sh ; bash pymod_installer.sh
 ```
 
-Executing the script
+Usage
+
+Be in same directory where the `container` directory is present and execute following command-
 
 ```
-$ ./pymod.sh --github-username <GITHUB_USERNAME> --github-token <GITHUB_TOKEN>
+$ pymod --github-username <GITHUB_USERNAME> --github-token <GITHUB_TOKEN>
     --pypi-username <PYPI-USERNAME> --pypi-password <PYPI-PASSWORD>
     --author-name <AUTHOR_NAME> --version <VERSION>
 ```    
