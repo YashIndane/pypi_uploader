@@ -1,3 +1,5 @@
+![](https://img.shields.io/badge/-BASH-yellowgreen?style=flat&logo=shell)
+
 # pypi_uploader
 Bash script to upload Python module to pypi.org server
 
