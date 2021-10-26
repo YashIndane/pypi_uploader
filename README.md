@@ -32,7 +32,7 @@ $ yum insall git
 $ yum install python3
 ```
 
-Downloading the script and making the `pymod` command
+Run the following command to download the script and making the `pymod` command
 
 ```
 $ wget https://raw.githubusercontent.com/YashIndane/pypi_uploader/main/pymod_installer.sh ; bash pymod_installer.sh
