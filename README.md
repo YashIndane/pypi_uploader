@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/-BASH-yellowgreen?style=flat&logo=shell)
 
 # pypi_uploader
-Bash script to upload Python module to pypi.org server
+A command to upload Python module to pypi.org server
 
 Create a directory anywhere with name `container` with the following structure
 
