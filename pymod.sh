@@ -2,17 +2,16 @@
 
 #This bash script will upload your python module to pypi.org
 #
-#Create a directory with any name with the following structure
-#  .
-#  |__container
-#  |  |__<module_name>
-#  |  |  |__<file_1.py>
-#  |  |  |__  .
-#  |  |	 |__  .	 
-#  |  |  |__<file_n.py>
-#  |  |__README.md
-#  |__pymod.sh  
-#
+#Create a directory anywhere with name 'container' with the following structure
+#  
+#     container
+#     |__<module_name>
+#     |  |__<file_1.py>
+#     |  |__  .
+#     |	 |__  .	 
+#     |  |__<file_n.py>
+#     |__README.md
+#    
 #Required Installations
 #1)git
 #  $ yum insall git
@@ -20,8 +19,8 @@
 #2)python3
 #  $ yum install python3
 #
-#Executing the script
-#  $ ./pymod.sh --github-username <GITHUB_USERNAME> --github-token <GITHUB_TOKEN>
+#Executing the following command
+#  $ pymod --github-username <GITHUB_USERNAME> --github-token <GITHUB_TOKEN>
 #    --pypi-username <PYPI-USERNAME> --pypi-password <PYPI-PASSWORD>
 #    --author-name <AUTHOR_NAME> --version <VERSION>
 #
