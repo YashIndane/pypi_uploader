@@ -19,7 +19,7 @@
 #2)python3
 #  $ yum install python3
 #
-#Executing the following command
+#Executing the following command in the directory where 'container' directory is present
 #  $ pymod --github-username <GITHUB_USERNAME> --github-token <GITHUB_TOKEN>
 #    --pypi-username <PYPI-USERNAME> --pypi-password <PYPI-PASSWORD>
 #    --author-name <AUTHOR_NAME> --version <VERSION>
