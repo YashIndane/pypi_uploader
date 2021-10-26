@@ -42,7 +42,6 @@ Be in same directory where the `container` directory is present and execute foll
 
 ```
 $ pymod --github-username <GITHUB_USERNAME> --github-token <GITHUB_TOKEN>
-    --pypi-username <PYPI-USERNAME> --pypi-password <PYPI-PASSWORD>
-    --author-name <AUTHOR_NAME> --version <VERSION>
-```    
-    
+  --pypi-username <PYPI-USERNAME> --pypi-password <PYPI-PASSWORD>
+  --author-name <AUTHOR_NAME> --version <VERSION>
+```
